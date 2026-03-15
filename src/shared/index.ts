@@ -1,7 +1,7 @@
 import { ConfigSchema } from './validation';
 
 export const Config = ConfigSchema.parse({
-  Debug: process.env.DEBUG === 'true' || true,
+  Debug: process.env.DEBUG === 'true',
 });
 
 export type { PlayerData, MoneyTransaction, InventoryItem, VoiceChannel } from './validation';
