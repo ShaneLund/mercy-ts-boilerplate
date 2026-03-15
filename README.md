@@ -24,14 +24,21 @@ Modern, blazing-fast, fully-typed starter for any new Mercy resource.
 - GitHub CI + Husky + Prettier + ESLint  
 
 ### 🚀 Quick Start
-```bash```<br>
-```npm install```<br>
-```npm run dev```          # watch mode + NUI preview at http://localhost:5173<br>
-```npm run build```        # production build (auto-updates fxmanifest)<br>
+```bash
+npm install
+npm run dev         # watch mode + NUI preview at http://localhost:5173
+npm run build       # production build (auto-updates fxmanifest)
+```
 
-Drop the folder in ```resources/``` → ```ensure mercy-ts-boilerplate-pro```
+Drop the folder in ``resources/`` → ``ensure mercy-ts-boilerplate``
 
 ---
+### Mercy Framework Integration
+* Works perfectly with the official mercy-framework (OneSync + frameworkdb.sql)  
+* Real export examples (money, inventory, voice, casino wheel)  
+* Ready for mercy-base, mercy-voiceserver, mercy-casino
+
+
 
 ### Commands
 ```npm run dev``` → full development  
@@ -42,4 +49,6 @@ Made with 💖 for the Mercy Collective community.
 
 ---
 
-Star this repo if it helps you build faster!
+**Star this repo** if it helps you build faster!
+
+---
