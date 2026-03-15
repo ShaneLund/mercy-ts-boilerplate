@@ -24,10 +24,10 @@ Modern, blazing-fast, fully-typed starter for any new Mercy resource.
 - GitHub CI + Husky + Prettier + ESLint  
 
 ### 🚀 Quick Start
-``bash``
-``npm install``
-``npm run dev``          # watch mode + NUI preview at http://localhost:5173
-``npm run build``        # production build (auto-updates fxmanifest)
+``bash``<br>
+``npm install``<br>
+``npm run dev``          # watch mode + NUI preview at http://localhost:5173<br>
+``npm run build``        # production build (auto-updates fxmanifest)<br>
 
 Drop the folder in ``resources/`` → ``ensure mercy-ts-boilerplate-pro``
 
