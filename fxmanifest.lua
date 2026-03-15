@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Mercy Collective + You'
-description 'AAA TypeScript Boilerplate for Mercy Framework (React NUI + tRPC)'
+description 'TypeScript Boilerplate for Mercy Framework (React NUI + tRPC)'
 version '2.3.0'
 
 lua54 'yes'
