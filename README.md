@@ -36,4 +36,4 @@ Drop the folder in ``resources/`` → ``ensure mercy-ts-boilerplate-pro``
 ``npm run build`` → production + manifest update  
 ``npm run lint`` / ``npm test```
 
-Made with <3 for the Mercy Collective community. Star this repo if it helps you build faster!
+Made with 💖 for the Mercy Collective community. Star this repo if it helps you build faster!
