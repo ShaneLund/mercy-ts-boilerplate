@@ -1,6 +1,6 @@
 # Mercy TS Boilerplate Pro v2.3
 
-**AAA Production TypeScript + React 19 + tRPC Boilerplate for Mercy Framework**
+**TypeScript + React 19 + tRPC Boilerplate for Mercy Framework**
 
 Modern, blazing-fast, fully-typed starter for any new Mercy resource.
 
