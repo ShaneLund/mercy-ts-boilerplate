@@ -1,6 +1,6 @@
 # Mercy TS Boilerplate Pro v2.3
 
-**TypeScript + React 19 + tRPC Boilerplate for Mercy Framework**
+**AAA Production TypeScript + React 19 + tRPC Boilerplate for Mercy Framework**
 
 Modern, blazing-fast, fully-typed starter for any new Mercy resource.
 
@@ -14,17 +14,26 @@ Modern, blazing-fast, fully-typed starter for any new Mercy resource.
 ---
 
 ### ✨ Features
-- **Lightning-fast** esbuild + Vite hot-reload
-- **React 19 + Tailwind** NUI (looks like official Mercy UIs)
-- **Zod** runtime validation everywhere
-- **tRPC-style** fully typed client ↔ server RPC
-- **Pino** beautiful structured logging
-- **oxmysql** safe DB layer for `frameworkdb.sql`
-- Auto-generated `fxmanifest.lua`
-- GitHub CI + Husky + Prettier + ESLint
+- **Lightning-fast** esbuild + Vite hot-reload  
+- **React 19 + Tailwind** NUI (looks like official Mercy UIs)  
+- **Zod** runtime validation everywhere  
+- **tRPC-style** fully typed client ↔ server RPC  
+- **Pino** beautiful structured logging  
+- **oxmysql** safe DB layer for `frameworkdb.sql`  
+- Auto-generated `fxmanifest.lua`  
+- GitHub CI + Husky + Prettier + ESLint  
 
 ### 🚀 Quick Start
-```bash
+bash
 npm install
 npm run dev          # watch mode + NUI preview at http://localhost:5173
 npm run build        # production build (auto-updates fxmanifest)
+
+Drop the folder in ``resources/ → ensure mercy-ts-boilerplate-pro``
+
+### Commands
+``npm run dev`` → full development  
+``npm run build`` → production + manifest update  
+``npm run lint`` / ``npm test```
+
+Made with <3 for the Mercy Collective community. Star this repo if it helps you build faster!
