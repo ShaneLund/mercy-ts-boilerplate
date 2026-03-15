@@ -1,6 +1,6 @@
+import { z } from 'zod';
 import { Config } from '../shared';
 import { RPC } from '../shared/rpc';
-import { z } from 'zod';
 
 console.log(`[Mercy-TS] Client loaded – Debug: ${Config.Debug}`);
 
@@ -8,10 +8,11 @@ on('onClientResourceStart', (resName: string) => {
   if (resName === GetCurrentResourceName()) console.log('[Mercy-TS] Resource ready');
 });
 
-export const rpcClient = {
+const rpcClient = {
   giveMoney: (data: z.infer<typeof RPC.giveMoney.schema>) => TriggerServerEvent(RPC.giveMoney.event, data),
   giveItem: (data: z.infer<typeof RPC.giveItem.schema>) => TriggerServerEvent(RPC.giveItem.event, data),
   joinVoiceChannel: (data: z.infer<typeof RPC.joinVoiceChannel.schema>) => TriggerServerEvent(RPC.joinVoiceChannel.event, data),
+  spinWheelRequest: () => emitNet(RPC.spinWheelRequest.event, {}),
 };
 
 onNet(RPC.notify.event, (data: unknown) => {
@@ -19,28 +20,32 @@ onNet(RPC.notify.event, (data: unknown) => {
   console.log(`[Mercy-TS] Notification: ${notification.message}`);
 });
 
-RegisterNuiCallbackType('giveMoney');
-on('__cfx_nui:giveMoney', (data: any, cb: Function) => {
-  rpcClient.giveMoney(data);
-  cb({ success: true });
+function registerNuiCallback<T>(name: string, handler: (data: T) => void) {
+  RegisterNuiCallbackType(name);
+  on(`__cfx_nui:${name}`, (data: T, cb: (resp: { success: boolean }) => void) => {
+    try {
+      handler(data);
+      cb({ success: true });
+    } catch {
+      cb({ success: false });
+    }
+  });
+}
+
+registerNuiCallback('giveMoney', (data: z.infer<typeof RPC.giveMoney.schema>) => {
+  rpcClient.giveMoney(RPC.giveMoney.schema.parse(data));
 });
 
-RegisterNuiCallbackType('giveItem');
-on('__cfx_nui:giveItem', (data: any, cb: Function) => {
-  rpcClient.giveItem(data);
-  cb({ success: true });
+registerNuiCallback('giveItem', (data: z.infer<typeof RPC.giveItem.schema>) => {
+  rpcClient.giveItem(RPC.giveItem.schema.parse(data));
 });
 
-RegisterNuiCallbackType('joinVoice');
-on('__cfx_nui:joinVoice', (data: any, cb: Function) => {
-  rpcClient.joinVoiceChannel(data);
-  cb({ success: true });
+registerNuiCallback('joinVoice', (data: z.infer<typeof RPC.joinVoiceChannel.schema>) => {
+  rpcClient.joinVoiceChannel(RPC.joinVoiceChannel.schema.parse(data));
 });
 
-RegisterNuiCallbackType('spinWheel');
-on('__cfx_nui:spinWheel', (_, cb: Function) => {
-  TriggerClientEvent('mercy-casino:openWheel', -1);
-  cb({ success: true });
+registerNuiCallback('spinWheel', () => {
+  rpcClient.spinWheelRequest();
 });
 
 setTimeout(() => SendNuiMessage({ type: 'init', debug: Config.Debug }), 500);
