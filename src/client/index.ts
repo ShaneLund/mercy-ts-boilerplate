@@ -1,5 +1,6 @@
 import { Config } from '../shared';
 import { RPC } from '../shared/rpc';
+import { z } from 'zod';
 
 console.log(`[Mercy-TS] Client loaded – Debug: ${Config.Debug}`);
 
