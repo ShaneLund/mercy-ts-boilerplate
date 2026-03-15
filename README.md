@@ -31,9 +31,15 @@ Modern, blazing-fast, fully-typed starter for any new Mercy resource.
 
 Drop the folder in ```resources/``` → ```ensure mercy-ts-boilerplate-pro```
 
+---
+
 ### Commands
 ```npm run dev``` → full development  
 ```npm run build``` → production + manifest update  
 ```npm run lint``` / ```npm test```
 
-Made with 💖 for the Mercy Collective community. Star this repo if it helps you build faster!
+Made with 💖 for the Mercy Collective community. 
+
+---
+
+Star this repo if it helps you build faster!
